@@ -64,9 +64,9 @@
 
 %% Orientations
 \DeclareOption{eai}{
-  \def\@orientation{Électronique et Automatisation industrielle}
+  \def\@orientation{Électronique et automatisation industrielle}
   \def\@department{TIN}
-  \def\@faculty{Génie Électrique}
+  \def\@faculty{Génis Électrique}
   \def\@field{Ingénierie}
 }
 
@@ -106,7 +106,7 @@
 }
 
 \DeclareOption{mi}{
-  \def\@orientation{Mécatronique}
+  \def\@orientation{Robotique et Conception Microtechnique}
   \def\@department{TIN}
   \def\@faculty{Microtechniques}
   \def\@field{Ingénierie}
@@ -666,7 +666,7 @@
     },
   callout default/.style={
       colbacktitle=gray!40!white,
-
+      
       title={\textcolor{black}{\makebox[1.3em][l]{\faComment}}},
     }
 }
@@ -704,20 +704,20 @@
   end
   return tokenize(a) < tokenize(b)
   end
-
+  
   function include_dir(order, dir)
   local files = {}
   for file in io.popen('ls ' .. dir .. '/*.tex'):lines() do
   table.insert(files, file)
   end
-
+  
   -- Appliquer le tri si demandé
   if order == "natural" then
   table.sort(files, natural_sort)
   else
   table.sort(files) -- Tri alphabétique standard par défaut
   end
-
+  
   -- Inclure les fichiers
   for _, file in ipairs(files) do
   tex.sprint("\\input{" .. file .. "}")
